@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const features = [
   {
@@ -332,8 +333,19 @@ export default function Home() {
           <span className="brand-dot">.</span>
         </a>
         <p>Conectando escolas, famílias e alunos.</p>
-        <span>Uma solução CodePact</span>
+        <span>
+          Uma solução{" "}
+          <a
+            href="https://codepact.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CodePact
+          </a>
+        </span>
       </footer>
+
+      <Analytics />
     </>
   );
 }
