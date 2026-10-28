@@ -1,0 +1,11 @@
+<svg width="19.638" height="16.867" viewBox="0 0 5.196 4.463" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#ccdeee" stroke-width="1.323" stroke-linecap="round" stroke-linejoin="round"
+    paint-order="markers fill stroke">
+    <path style="font-variation-settings:'wght' 600"
+      d="M299.244 955.047c-3.616 1.303-5.093 3.208-5.093 3.208-1 1.24 1.03 2.94 1.752 2.249.841-.85 1.803-1.96 5.292-3.308"
+      stroke="#000" transform="matrix(.29181 0 0 .29181 -85.566 -276.065)" />
+    <path
+      d="M310.314 952.634c-.59 4.593-2.542 5.97-5.677 5.944-4.061-.032-5.77-2.675-5.677-5.944.11-3.889 2.4-5.923 5.677-5.945 3.525-.021 6.133 2.389 5.677 5.945z"
+      stroke="#030303" transform="matrix(.29181 0 0 .29181 -85.566 -276.065)" />
+  </g>
+</svg>

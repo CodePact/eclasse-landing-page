@@ -6,7 +6,7 @@ Reconstrução da página capturada em `eclasse.codepact.com.br`, com Next.js Ap
 
 Instale as dependências com `npm install`, inicie com `npm run dev` e gere a versão de produção com `npm run build` / `npm start`.
 
-Os assets capturados são servidos por `/assets/<nome>` a partir de `_next/static/media/`. Mantenha essa pasta e `favicon.ico` junto à aplicação também no deploy; não publique os chunks antigos como aplicação.
+Os assets estáticos ficam em `public/assets/` e são servidos por `/assets/<nome>`. Inclua essa pasta no deploy. A aplicação não depende de arquivos do snapshot `_next`.
 
 ## Formulário de leads (placeholder)
 
