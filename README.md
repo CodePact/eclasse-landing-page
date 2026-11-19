@@ -8,13 +8,22 @@ Instale as dependências com `npm install`, inicie com `npm run dev` e gere a ve
 
 Os assets estáticos ficam em `public/assets/` e são servidos por `/assets/<nome>`. Inclua essa pasta no deploy. A aplicação não depende de arquivos do snapshot `_next`.
 
-## Formulário de leads (placeholder)
+## Formulário de contato
 
 Contrato proposto: `POST /api/leads`, `Content-Type: application/json`, corpo `{ "name": "Nome", "email": "nome@escola.com.br", "phone": "(11) 99999-9999" }`.
 
 - `400`: JSON inválido ou campos fora da validação.
-- `503`: dados válidos, mas a captura ainda não está integrada e nenhum lead foi gravado.
+- `502`: falha no serviço de e-mail.
+- `503`: serviço ou destinatário não configurado.
+- `504`: timeout do serviço de e-mail.
+- `200`: e-mail enviado com sucesso.
 
-A rota valida os dados e não registra nem persiste informações pessoais. Antes de ativar a captura, substitua a resposta `503` por uma integração de servidor com o backend aprovado pela CodePact; não coloque tokens de serviço no navegador. A interface avisa que o envio não está ativo.
+Configure as credenciais somente no servidor e nunca como `NEXT_PUBLIC_*`:
+
+- `RESEND_API_KEY`: chave da API Resend.
+- `CONTACT_EMAIL` ou `ECLASSE_CONTACT_EMAIL`: destinatário dos contatos.
+- `EMAIL_FROM`: remetente autorizado no provedor (opcional).
+
+A rota valida e sanitiza os dados antes do envio e não os registra nem persiste. O serviço usa timeout de 10 segundos e falhas são registradas sem incluir dados pessoais. O botão é bloqueado enquanto o envio está em processamento.
 
 O GTM `GTM-NZ3JV69F` e a verificação de domínio do Facebook foram preservados conforme solicitado. Revise consentimento de cookies e regras de privacidade antes de publicar.

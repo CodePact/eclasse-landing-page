@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Analytics } from "@vercel/analytics/next";
 
 const features = [
@@ -52,12 +52,18 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sending, setSending] = useState(false);
   const [feedback, setFeedback] = useState("");
+  const [feedbackType, setFeedbackType] = useState("");
+  const sendingRef = useRef(false);
 
   async function submitLead(event) {
     event.preventDefault();
+    if (sendingRef.current) return;
+    sendingRef.current = true;
+    const formElement = event.currentTarget;
     setSending(true);
     setFeedback("");
-    const form = new FormData(event.currentTarget);
+    setFeedbackType("");
+    const form = new FormData(formElement);
 
     try {
       const response = await fetch("/api/leads", {
@@ -70,10 +76,19 @@ export default function Home() {
         }),
       });
       const result = await response.json();
-      setFeedback(result.error || "Não foi possível enviar seus dados.");
+      if (response.ok && result.success) {
+        setFeedback(result.message || "Mensagem enviada com sucesso!");
+        setFeedbackType("success");
+        formElement.reset();
+      } else {
+        setFeedback(result.error || "Não foi possível enviar seus dados.");
+        setFeedbackType("error");
+      }
     } catch {
       setFeedback("Não foi possível conectar. Tente novamente mais tarde.");
+      setFeedbackType("error");
     } finally {
+      sendingRef.current = false;
       setSending(false);
     }
   }
@@ -317,10 +332,13 @@ export default function Home() {
               <span aria-hidden="true">↗</span>
             </button>
             <p className="form-disclaimer">
-              A captura de contatos está temporariamente indisponível. Seus
-              dados não serão armazenados.
+              Ao enviar, você autoriza o contato da equipe EClasse.
             </p>
-            <p className="form-feedback" role="status" aria-live="polite">
+            <p
+              className={`form-feedback ${feedbackType}`}
+              role="status"
+              aria-live="polite"
+            >
               {feedback}
             </p>
           </form>

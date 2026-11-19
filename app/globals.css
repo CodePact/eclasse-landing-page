@@ -550,6 +550,12 @@ summary:focus-visible {
   font-size: 12px;
   font-weight: 600;
 }
+.form-feedback.success {
+  color: #17643a;
+}
+.form-feedback.error {
+  color: #a12b2b;
+}
 .site-footer {
   min-height: 95px;
   padding: 20px max(6vw, 24px);
