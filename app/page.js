@@ -236,9 +236,7 @@ export default function Home() {
             <h2>
               Descubra o que o EClasse pode fazer pela <span>sua escola</span>
             </h2>
-            <p>
-              Fale com nossa equipe para apresentar a plataforma.
-            </p>
+            <p>Fale com nossa equipe para apresentar a plataforma.</p>
             <div className="contact-illustration">
               <img
                 src="/assets/communication.fd6ac017.svg"
@@ -256,7 +254,7 @@ export default function Home() {
             </a>
             <a
               className="button button-whatsapp contact-button"
-              href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20EClasse."
+              href="https://wa.me/5517996272605?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20EClasse."
               target="_blank"
               rel="noopener noreferrer"
             >
