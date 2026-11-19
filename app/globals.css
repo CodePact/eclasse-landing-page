@@ -198,6 +198,13 @@ summary:focus-visible {
 .button-primary:hover {
   background: var(--purple-dark);
 }
+.button-whatsapp {
+  background: #25d366;
+  color: #132a1d;
+}
+.button-whatsapp:hover {
+  background: #20bd5a;
+}
 .button span {
   font-size: 19px;
 }
@@ -500,55 +507,21 @@ summary:focus-visible {
   height: 92px;
   object-fit: contain;
 }
-.contact-form {
+.contact-actions {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   background: white;
   border-radius: 18px;
   box-shadow: 0 10px 30px #2920440d;
 }
-.contact-form h3 {
-  margin: 0 0 17px;
+.contact-actions h3 {
+  margin: 0 0 5px;
   font: 700 22px var(--font-heading);
 }
-.contact-form label {
-  display: block;
-  margin: 13px 0 5px;
-  font-size: 12px;
-  font-weight: 700;
-}
-.contact-form input {
+.contact-button {
   width: 100%;
-  height: 45px;
-  padding: 0 13px;
-  border: 1px solid #e6e3ec;
-  border-radius: 9px;
-  background: #fff;
-  color: var(--ink);
-  font-size: 13px;
-}
-.contact-form input::placeholder {
-  color: #a5a4ae;
-}
-.submit-button {
-  width: 100%;
-  margin-top: 19px;
-}
-.submit-button:disabled {
-  opacity: 0.7;
-  cursor: wait;
-}
-.form-disclaimer {
-  margin: 12px 0 0;
-  color: #7a7887;
-  font-size: 11px;
-  line-height: 1.5;
-}
-.form-feedback {
-  min-height: 20px;
-  margin: 7px 0 0;
-  color: var(--purple-dark);
-  font-size: 12px;
-  font-weight: 600;
 }
 .site-footer {
   min-height: 95px;
@@ -799,7 +772,7 @@ summary:focus-visible {
     width: 125px;
     height: 68px;
   }
-  .contact-form {
+  .contact-actions {
     padding: 23px 19px;
   }
   .site-footer {

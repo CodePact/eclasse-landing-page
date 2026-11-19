@@ -8,13 +8,4 @@ Instale as dependências com `npm install`, inicie com `npm run dev` e gere a ve
 
 Os assets estáticos ficam em `public/assets/` e são servidos por `/assets/<nome>`. Inclua essa pasta no deploy. A aplicação não depende de arquivos do snapshot `_next`.
 
-## Formulário de leads (placeholder)
-
-Contrato proposto: `POST /api/leads`, `Content-Type: application/json`, corpo `{ "name": "Nome", "email": "nome@escola.com.br", "phone": "(11) 99999-9999" }`.
-
-- `400`: JSON inválido ou campos fora da validação.
-- `503`: dados válidos, mas a captura ainda não está integrada e nenhum lead foi gravado.
-
-A rota valida os dados e não registra nem persiste informações pessoais. Antes de ativar a captura, substitua a resposta `503` por uma integração de servidor com o backend aprovado pela CodePact; não coloque tokens de serviço no navegador. A interface avisa que o envio não está ativo.
-
 O GTM `GTM-NZ3JV69F` e a verificação de domínio do Facebook foram preservados conforme solicitado. Revise consentimento de cookies e regras de privacidade antes de publicar.
