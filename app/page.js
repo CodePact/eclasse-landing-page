@@ -50,33 +50,6 @@ const questions = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [feedback, setFeedback] = useState("");
-
-  async function submitLead(event) {
-    event.preventDefault();
-    setSending(true);
-    setFeedback("");
-    const form = new FormData(event.currentTarget);
-
-    try {
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.get("name"),
-          email: form.get("email"),
-          phone: form.get("phone"),
-        }),
-      });
-      const result = await response.json();
-      setFeedback(result.error || "Não foi possível enviar seus dados.");
-    } catch {
-      setFeedback("Não foi possível conectar. Tente novamente mais tarde.");
-    } finally {
-      setSending(false);
-    }
-  }
 
   return (
     <>
@@ -264,8 +237,7 @@ export default function Home() {
               Descubra o que o EClasse pode fazer pela <span>sua escola</span>
             </h2>
             <p>
-              Deixe seus dados e nossa equipe entrará em contato para apresentar
-              a plataforma.
+              Fale com nossa equipe para apresentar a plataforma.
             </p>
             <div className="contact-illustration">
               <img
@@ -274,56 +246,24 @@ export default function Home() {
               />
             </div>
           </div>
-          <form className="contact-form" onSubmit={submitLead}>
+          <div className="contact-actions">
             <h3>Entre em contato</h3>
-            <label htmlFor="lead-name">Nome</label>
-            <input
-              id="lead-name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              minLength="2"
-              maxLength="120"
-              required
-              placeholder="Seu nome"
-            />
-            <label htmlFor="lead-email">E-mail</label>
-            <input
-              id="lead-email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              maxLength="254"
-              required
-              placeholder="voce@escola.com.br"
-            />
-            <label htmlFor="lead-phone">Telefone</label>
-            <input
-              id="lead-phone"
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              minLength="8"
-              maxLength="30"
-              required
-              placeholder="(00) 00000-0000"
-            />
-            <button
-              className="button button-primary submit-button"
-              type="submit"
-              disabled={sending}
+            <a
+              className="button button-primary contact-button"
+              href="mailto:contato@codepact.com.br"
             >
-              {sending ? "Enviando…" : "Enviar"}
+              Enviar E-mail
+            </a>
+            <a
+              className="button button-whatsapp contact-button"
+              href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20EClasse."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar pelo WhatsApp
               <span aria-hidden="true">↗</span>
-            </button>
-            <p className="form-disclaimer">
-              A captura de contatos está temporariamente indisponível. Seus
-              dados não serão armazenados.
-            </p>
-            <p className="form-feedback" role="status" aria-live="polite">
-              {feedback}
-            </p>
-          </form>
+            </a>
+          </div>
         </section>
       </main>
 
